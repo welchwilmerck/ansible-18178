@@ -1,0 +1,3 @@
+---
+- name: execute handler logic
+  shell: echo executing handler logic >> /tmp/ansible-18178 
