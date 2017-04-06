@@ -1,0 +1,8 @@
+---
+- name: execute handler logic first
+  debug:
+    msg: first task in handler block
+
+- name: execute handler logic second
+  debug:
+    msg: second task in handler block

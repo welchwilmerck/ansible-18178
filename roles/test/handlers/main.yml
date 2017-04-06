@@ -1,3 +1,19 @@
 ---
-- name: execute handler
+# - name: uncalled handler
+#   debug:
+#     msg: "uncomment this handler and following handler block won't be in the list "
+
+- name: execute included handler
   include: handlerlogic.yml
+
+- name: execute inline handler before
+  debug:
+    msg: "inline handler before second include fired"
+
+# this handler block never gets added to the list
+- name: execute second included handler
+  include: handlerlogic-second.yml
+
+- name: execute inline handler after
+  debug:
+    msg: "inline handler after second include fired"

@@ -1,13 +1,19 @@
 ---
 - name: task one
-  shell: echo task one >> /tmp/ansible-18178
-  notify: execute handler
+  shell: echo task one
+  notify:
+    - execute inline handler before
+    - execute included handler
+    - execute inline handler after
 
 - name: task two
-  shell: echo task two >> /tmp/ansible-18178
-  notify: execute handler
+  shell: echo task two
+  notify:
+    - execute inline handler after
+    - execute included handler
+
 
 - name: task three
-  shell: echo task three >> /tmp/ansible-18178
-  notify: execute handler
-
+  shell: echo task three
+#  uncomment following notify: and no handler runs
+#  notify: execute second included handler
